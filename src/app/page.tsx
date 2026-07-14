@@ -79,6 +79,23 @@ export default function Home() {
   function clearCart() {
   setCart([]);
 }
+function handleCash() {
+  alert("รับชำระเงินสด");
+  clearCart();
+  setPaymentOpen(false);
+}
+
+function handleTransfer() {
+  alert("รับชำระเงินโอน");
+  clearCart();
+  setPaymentOpen(false);
+}
+
+function handleThaiHelpThai() {
+  alert("รับชำระไทยช่วยไทย");
+  clearCart();
+  setPaymentOpen(false);
+}
 
   const total = cart.reduce(
     (sum, item) => sum + item.product.price * item.quantity,
@@ -106,9 +123,12 @@ export default function Home() {
 <PaymentModal
   open={paymentOpen}
   onClose={() => setPaymentOpen(false)}
+  onCash={handleCash}
+  onTransfer={handleTransfer}
+  onThaiHelpThai={handleThaiHelpThai}
 />
 
-</div>
+      </div>
 
     </main>
   );
