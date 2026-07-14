@@ -38,7 +38,7 @@ export const products: Product[] = [
   {
     id: 6,
     name: "คุกกี้เซ็ต",
-    price: 50,
+    price: 55,
     image: "/products/Cookies Set.png",
     category: "bakery",
   },
