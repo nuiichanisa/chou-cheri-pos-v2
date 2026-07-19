@@ -1,6 +1,7 @@
 "use client";
 
 import type { Sale } from "@/types/sale";
+import { exportSalesToExcel } from "@/lib/exportExcel";
 
 type Props = {
   sales: Sale[];
@@ -24,25 +25,30 @@ export default function SalesHistory({ sales }: Props) {
 
   return (
     <div className="rounded-3xl bg-white p-6 shadow">
-      <h2 className="mb-4 text-xl font-bold">
-        ประวัติการขาย
-      </h2>
+      <div className="mb-4 flex items-center justify-between">
+        <h2 className="text-xl font-bold">ประวัติการขาย</h2>
+
+        <button
+          type="button"
+          onClick={() => exportSalesToExcel(sorted)}
+          className="rounded-xl bg-teal-500 px-4 py-2 font-semibold text-white hover:bg-teal-600"
+        >
+          📥 Export Excel
+        </button>
+      </div>
 
       {sorted.length === 0 ? (
-        <p className="text-gray-400">
-          ยังไม่มีรายการ
-        </p>
+        <p className="text-gray-400">ยังไม่มีรายการ</p>
       ) : (
-        <div className="space-y-3 max-h-[500px] overflow-y-auto">
+        <div className="max-h-[500px] space-y-3 overflow-y-auto">
           {sorted.map((sale) => (
             <div
               key={sale.id}
               className="rounded-xl border p-4 hover:bg-gray-50"
             >
               <div className="flex items-center justify-between">
-
                 <div>
-                  <div className="font-bold text-lg">
+                  <div className="text-lg font-bold">
                     Order #{sale.id}
                   </div>
 
@@ -60,7 +66,6 @@ export default function SalesHistory({ sales }: Props) {
                     {paymentLabel(sale.payment)}
                   </div>
                 </div>
-
               </div>
 
               <hr className="my-3" />
@@ -81,7 +86,6 @@ export default function SalesHistory({ sales }: Props) {
                   </div>
                 ))}
               </div>
-
             </div>
           ))}
         </div>

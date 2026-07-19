@@ -21,11 +21,18 @@ export default function PaymentModal({
 }: Props) {
   const [received, setReceived] = useState("");
 
+  const [confirmType, setConfirmType] = useState<
+   "cash" | "transfer" | "thai-help-thai" | null
+>(null);
+const [processing, setProcessing] = useState(false);
+
+
   useEffect(() => {
-    if (open) {
-      setReceived("");
-    }
-  }, [open]);
+  if (open) {
+    setReceived("");
+    setConfirmType(null);
+  }
+}, [open]);
 
   if (!open) return null;
 
@@ -34,7 +41,34 @@ export default function PaymentModal({
 
   const quickCash = [100, 200, 500, 1000];
 
+  function confirmPayment() {
+  if (processing) return;
+
+  setProcessing(true);
+
+  switch (confirmType) {
+    case "cash":
+      onCash(receiveAmount);
+      break;
+
+    case "transfer":
+      onTransfer();
+      break;
+
+    case "thai-help-thai":
+      onThaiHelpThai();
+      break;
+  }
+
+  setConfirmType(null);
+
+  setTimeout(() => {
+    setProcessing(false);
+  }, 800);
+}
+
   return (
+  <>
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
       <div className="w-[420px] rounded-3xl bg-white p-6 shadow-xl">
 
@@ -57,7 +91,13 @@ export default function PaymentModal({
           className="mb-3 w-full rounded-xl border p-3 text-center text-2xl font-bold"
         />
 
-        <div className="mb-4 grid grid-cols-4 gap-2">
+        <div className="mb-4 grid grid-cols-5 gap-2">
+          <button
+  onClick={() => setReceived(String(total))}
+  className="rounded-xl bg-teal-500 py-3 font-bold text-white"
+>
+  พอดี
+</button>
           {quickCash.map((amount) => (
             <button
               key={amount}
@@ -80,7 +120,7 @@ export default function PaymentModal({
         </div>
 
         <button
-          onClick={() => onCash(receiveAmount)}
+          onClick={() => setConfirmType("cash")}
           disabled={receiveAmount < total}
           className="mb-3 w-full rounded-xl bg-green-500 py-4 text-xl font-bold text-white disabled:bg-gray-300"
         >
@@ -88,14 +128,14 @@ export default function PaymentModal({
         </button>
 
         <button
-          onClick={onTransfer}
+          onClick={() => setConfirmType("transfer")}
           className="mb-3 w-full rounded-xl bg-sky-500 py-4 text-xl font-bold text-white"
         >
           📱 เงินโอน
         </button>
 
         <button
-          onClick={onThaiHelpThai}
+          onClick={() => setConfirmType("thai-help-thai")}
           className="mb-3 w-full rounded-xl bg-orange-400 py-4 text-xl font-bold text-white"
         >
           🇹🇭 ไทยช่วยไทย
@@ -108,7 +148,72 @@ export default function PaymentModal({
           ยกเลิก
         </button>
 
-      </div>
-    </div>
+            </div>
+         </div>
+
+      {confirmType && (
+        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/60">
+          <div className="w-[360px] rounded-3xl bg-white p-6 shadow-2xl">
+
+            <h3 className="mb-4 text-center text-2xl font-bold">
+              ยืนยันการชำระเงิน
+            </h3>
+
+            <div className="mb-5 rounded-xl bg-gray-100 p-4 space-y-2">
+
+              <div>
+                ยอดชำระ <b>฿{total}</b>
+              </div>
+
+              {confirmType === "cash" && (
+                <>
+                  <div>
+                    รับเงิน <b>฿{receiveAmount}</b>
+                  </div>
+
+                  <div>
+                    เงินทอน <b>฿{change}</b>
+                  </div>
+                </>
+              )}
+
+              {confirmType === "transfer" && (
+                <div>
+                  วิธีชำระ <b>เงินโอน</b>
+                </div>
+              )}
+
+              {confirmType === "thai-help-thai" && (
+                <div>
+                  วิธีชำระ <b>ไทยช่วยไทย</b>
+                </div>
+              )}
+
+            </div>
+
+            <div className="flex gap-3">
+
+              <button
+                onClick={() => setConfirmType(null)}
+                className="flex-1 rounded-xl border py-3 font-bold"
+              >
+                ยกเลิก
+              </button>
+
+              <button
+  onClick={confirmPayment}
+  disabled={processing}
+  className="flex-1 rounded-xl bg-teal-500 py-3 font-bold text-white disabled:bg-gray-300"
+>
+  {processing ? "กำลังบันทึก..." : "✅ ยืนยัน"}
+</button>
+
+            </div>
+
+          </div>
+        </div>
+      )}
+
+    </>
   );
 }
