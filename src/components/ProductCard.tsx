@@ -9,10 +9,18 @@ export default function ProductCard({
   product,
   onProductClick,
 }: Props) {
+  const handleClick = () => {
+    onProductClick(product);
+  };
+
   return (
     <button
       type="button"
-      onClick={() => onProductClick(product)}
+      onClick={handleClick}
+      onTouchEnd={(e) => {
+        e.preventDefault();
+        handleClick();
+      }}
       style={{
         width: "100%",
         border: "none",
@@ -20,11 +28,14 @@ export default function ProductCard({
         borderRadius: "20px",
         padding: "16px",
         cursor: "pointer",
+        touchAction: "manipulation",
+        WebkitTapHighlightColor: "transparent",
       }}
     >
       <img
         src={product.image}
         alt={product.name}
+        draggable={false}
         style={{
           width: "100%",
           aspectRatio: "1 / 1",

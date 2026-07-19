@@ -6,13 +6,18 @@ import Header from "@/components/Header";
 import ProductGrid from "@/components/ProductGrid";
 import Cart from "@/components/Cart";
 import PaymentModal from "@/components/PaymentModal";
+import Dashboard from "@/components/Dashboard";
 
 import type { Product } from "@/types/product";
 import type { CartItem } from "@/types/cart";
+import { useSales } from "@/hooks/useSales";
+import type { PaymentMethod } from "@/types/sale";
+import SalesHistory from "@/components/SalesHistory";
 
 export default function Home() {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [paymentOpen, setPaymentOpen] = useState(false);
+  const { sales, addSale } = useSales();
 
   function addToCart(product: Product) {
     setCart((currentCart) => {
@@ -79,20 +84,21 @@ export default function Home() {
   function clearCart() {
   setCart([]);
 }
-function handleCash() {
-  alert("รับชำระเงินสด");
-  clearCart();
-  setPaymentOpen(false);
-}
+async function completeSale(payment: PaymentMethod) {
+  await addSale({
+    createdAt: new Date().toISOString(),
+    payment,
+    subtotal: total,
+    discount: 0,
+    total,
+    items: cart.map((item) => ({
+      productId: item.product.id,
+      name: item.product.name,
+      price: item.product.price,
+      quantity: item.quantity,
+    })),
+  });
 
-function handleTransfer() {
-  alert("รับชำระเงินโอน");
-  clearCart();
-  setPaymentOpen(false);
-}
-
-function handleThaiHelpThai() {
-  alert("รับชำระไทยช่วยไทย");
   clearCart();
   setPaymentOpen(false);
 }
@@ -105,6 +111,10 @@ function handleThaiHelpThai() {
   return (
     <main className="min-h-screen bg-[var(--background)]">
       <Header />
+
+<div className="mx-auto max-w-7xl px-6 pt-6">
+  <Dashboard sales={sales} />
+</div>
 
       <div className="mx-auto grid max-w-7xl gap-6 p-6 lg:grid-cols-[3fr_1fr]">
 
@@ -121,12 +131,23 @@ function handleThaiHelpThai() {
 />
 
 <PaymentModal
+  total={total}
   open={paymentOpen}
   onClose={() => setPaymentOpen(false)}
-  onCash={handleCash}
-  onTransfer={handleTransfer}
-  onThaiHelpThai={handleThaiHelpThai}
+  onCash={(received) => {
+  if (received < total) {
+    alert("เงินไม่พอ");
+    return;
+  }
+
+  completeSale("cash");
+}}
+  onTransfer={() => completeSale("transfer")}
+  onThaiHelpThai={() => completeSale("thai-help-thai")}
 />
+<div className="mt-6">
+  <SalesHistory sales={sales} />
+</div>
 
       </div>
 

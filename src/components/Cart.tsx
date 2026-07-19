@@ -78,7 +78,7 @@ export default function Cart({
           </div>
 
           <div className="mt-6 border-t pt-4">
-            <div className="flex justify-between text-xl font-bold">
+            <div className="flex justify-between text-2xl font-bold">
               <span>รวม</span>
               <span>฿{total}</span>
             </div>
