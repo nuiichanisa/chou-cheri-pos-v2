@@ -1,8 +1,9 @@
-{
-  "name": "Chou Cheri POS",
-  "short_name": "POS",
-  "start_url": "/",
+  {
+  "name": "Chou Chéri POS",
+  "short_name": "Chou POS",
+  "start_url": "/?source=pwa",
   "display": "standalone",
+"orientation": "portrait",
   "background_color": "#ffffff",
   "theme_color": "#14b8a6",
   "icons": [
