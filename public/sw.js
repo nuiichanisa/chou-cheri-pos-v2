@@ -1,4 +1,4 @@
-const VERSION = "v4";
+const VERSION = "v5";
 
 const STATIC_CACHE = `static-${VERSION}`;
 const RUNTIME_CACHE = `runtime-${VERSION}`;
@@ -12,18 +12,6 @@ const APP_SHELL = [
   "/icon-512.png",
   "/logo.png",
   "/logo-header.png",
-
-  "/products/Brownies M.png",
-  "/products/Brownies S.png",
-  "/products/Cookies pcs.png",
-  "/products/Cookies Set.png",
-  "/products/Foccacia.png",
-  "/products/Scone pcs.png",
-  "/products/Scone Set.png",
-  "/products/Shiopan Truffle.png",
-  "/products/Shiopan.png",
-  "/products/Smoked Frank Braid.png",
-  "/products/Strawberry Jam.png",
 ];
 
 self.addEventListener("install", (event) => {
