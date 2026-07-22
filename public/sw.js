@@ -1,4 +1,4 @@
-const CACHE_NAME = "chou-pos-v1";
+const CACHE_NAME = "chou-pos-v2";
 
 const APP_SHELL = [
   "/",
