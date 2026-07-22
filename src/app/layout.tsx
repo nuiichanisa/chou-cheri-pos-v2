@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,21 +39,10 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-[#F8FCFF]">
         {children}
-
-        <Script id="register-sw" strategy="afterInteractive">
-  {`
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', async () => {
-        try {
-          const registration = await navigator.serviceWorker.register('/sw.js');
-          await registration.update();
-        } catch (e) {
-          console.error('SW registration failed', e);
-        }
-      });
-    }
-  `}
-</Script>
+        <Script
+  src="/register-sw.js"
+  strategy="afterInteractive"
+/>
       </body>
     </html>
   );

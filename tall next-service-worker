@@ -1,0 +1,27 @@
+warning: in the working copy of 'src/app/layout.tsx', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/src/app/layout.tsx b/src/app/layout.tsx[m
+[1mindex dc4f424..7a63d28 100644[m
+[1m--- a/src/app/layout.tsx[m
+[1m+++ b/src/app/layout.tsx[m
+[36m@@ -40,20 +40,7 @@[m [mexport default function RootLayout({[m
+       <body className="min-h-full flex flex-col bg-[#F8FCFF]">[m
+         {children}[m
+ [m
+[31m-        <Script id="register-sw" strategy="afterInteractive">[m
+[31m-  {`[m
+[31m-    if ('serviceWorker' in navigator) {[m
+[31m-      window.addEventListener('load', async () => {[m
+[31m-        try {[m
+[31m-          const registration = await navigator.serviceWorker.register('/sw.js');[m
+[31m-          await registration.update();[m
+[31m-        } catch (e) {[m
+[31m-          console.error('SW registration failed', e);[m
+[31m-        }[m
+[31m-      });[m
+[31m-    }[m
+[31m-  `}[m
+[31m-</Script>[m
+[32m+[m
+       </body>[m
+     </html>[m
+   );[m
