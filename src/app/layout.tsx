@@ -41,19 +41,19 @@ export default function RootLayout({
         {children}
 
         <Script id="register-sw" strategy="afterInteractive">
-          {`
-            if ('serviceWorker' in navigator) {
-              window.addEventListener('load', () => {
-                navigator.serviceWorker
-                  .register('/sw.js')
-                  .then(() => console.log('✅ Service Worker Registered'))
-                  .catch((err) =>
-                    console.error('❌ Service Worker Registration Failed', err)
-                  );
-              });
-            }
-          `}
-        </Script>
+  {`
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', async () => {
+        try {
+          const registration = await navigator.serviceWorker.register('/sw.js');
+          await registration.update();
+        } catch (e) {
+          console.error('SW registration failed', e);
+        }
+      });
+    }
+  `}
+</Script>
       </body>
     </html>
   );

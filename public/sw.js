@@ -1,22 +1,19 @@
-const VERSION = "v5";
-
-const STATIC_CACHE = `static-${VERSION}`;
-const RUNTIME_CACHE = `runtime-${VERSION}`;
-
-const APP_SHELL = [
-  "/",
-  "/manifest.json",
-  "/favicon.ico",
-  "/apple-touch-icon.png",
-  "/icon-192.png",
-  "/icon-512.png",
-  "/logo.png",
-  "/logo-header.png",
-];
+const CACHE = "chou-cheri-v1";
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(STATIC_CACHE).then((cache) => cache.addAll(APP_SHELL))
+    caches.open(CACHE).then((cache) =>
+      cache.addAll([
+        "/",
+        "/manifest.json",
+        "/favicon.ico",
+        "/apple-touch-icon.png",
+        "/icon-192.png",
+        "/icon-512.png",
+        "/logo.png",
+        "/logo-header.png",
+      ])
+    )
   );
 
   self.skipWaiting();
@@ -24,22 +21,16 @@ self.addEventListener("install", (event) => {
 
 self.addEventListener("activate", (event) => {
   event.waitUntil(
-    (async () => {
-      const keys = await caches.keys();
-
-      await Promise.all(
+    caches.keys().then((keys) =>
+      Promise.all(
         keys
-          .filter(
-            (key) =>
-              key !== STATIC_CACHE &&
-              key !== RUNTIME_CACHE
-          )
+          .filter((key) => key !== CACHE)
           .map((key) => caches.delete(key))
-      );
-
-      await self.clients.claim();
-    })()
+      )
+    )
   );
+
+  self.clients.claim();
 });
 
 self.addEventListener("fetch", (event) => {
@@ -47,82 +38,30 @@ self.addEventListener("fetch", (event) => {
 
   const url = new URL(event.request.url);
 
-  if (url.origin !== self.location.origin) return;
-
-  // ========= HTML =========
-  if (event.request.mode === "navigate") {
-    event.respondWith(networkFirst(event.request));
+  // อย่าไปยุ่งกับ Next.js internals
+  if (url.pathname.startsWith("/_next/")) {
     return;
   }
 
-  // ========= NEXT STATIC =========
-  if (url.pathname.startsWith("/_next/static/")) {
-    event.respondWith(cacheFirst(event.request));
-    return;
-  }
+  event.respondWith(
+    caches.match(event.request).then(async (cached) => {
+      if (cached) return cached;
 
-  // ========= Images =========
-  if (
-    url.pathname.endsWith(".png") ||
-    url.pathname.endsWith(".jpg") ||
-    url.pathname.endsWith(".jpeg") ||
-    url.pathname.endsWith(".svg") ||
-    url.pathname.endsWith(".webp") ||
-    url.pathname.endsWith(".ico")
-  ) {
-    event.respondWith(cacheFirst(event.request));
-    return;
-  }
+      try {
+        const response = await fetch(event.request);
 
-  // ========= CSS =========
-  if (url.pathname.endsWith(".css")) {
-    event.respondWith(cacheFirst(event.request));
-    return;
-  }
+        if (
+          response.ok &&
+          url.origin === self.location.origin
+        ) {
+          const cache = await caches.open(CACHE);
+          cache.put(event.request, response.clone());
+        }
 
-  // ========= JS =========
-  if (url.pathname.endsWith(".js")) {
-    event.respondWith(cacheFirst(event.request));
-    return;
-  }
-
-  event.respondWith(networkFirst(event.request));
+        return response;
+      } catch {
+        return cached;
+      }
+    })
+  );
 });
-
-async function cacheFirst(request) {
-  const cached = await caches.match(request);
-
-  if (cached) {
-    return cached;
-  }
-
-  const response = await fetch(request);
-
-  if (response.ok) {
-    const cache = await caches.open(RUNTIME_CACHE);
-    cache.put(request, response.clone());
-  }
-
-  return response;
-}
-
-async function networkFirst(request) {
-  try {
-    const response = await fetch(request);
-
-    if (response.ok) {
-      const cache = await caches.open(RUNTIME_CACHE);
-      cache.put(request, response.clone());
-    }
-
-    return response;
-  } catch {
-    const cached = await caches.match(request);
-
-    if (cached) {
-      return cached;
-    }
-
-    return caches.match("/");
-  }
-}
