@@ -108,7 +108,7 @@ export const products: Product[] = [
   {
     id: 16,
     name: "ซาวโดว์ (ทั้งก้อน)",
-    price: 250,
+    price: 280,
     image: "/products/Sourdough.png",
     category: "bread",
   },
