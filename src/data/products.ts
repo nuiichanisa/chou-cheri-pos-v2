@@ -3,14 +3,14 @@ export const products: Product[] = [
   {
     id: 1,
     name: "ชิโอะปัง",
-    price: 70,
+    price: 50,
     image: "/products/Shiopan.png",
     category: "bread",
   },
   {
     id: 2,
     name: "ชิโอะทรัฟเฟิล",
-    price: 110,
+    price: 90,
     image: "/products/Shiopan Truffle.png",
     category: "bread",
   },
