@@ -1,4 +1,5 @@
 import type { Product } from "@/types/product";
+
 export const products: Product[] = [
   {
     id: 1,
@@ -8,24 +9,10 @@ export const products: Product[] = [
     category: "bread",
   },
   {
-    id: 2,
-    name: "ชิโอะทรัฟเฟิล",
-    price: 110,
-    image: "/products/Shiopan Truffle.png",
-    category: "bread",
-  },
-  {
     id: 3,
     name: "บราวนี่ S",
     price: 40,
     image: "/products/Brownies S.png",
-    category: "bakery",
-  },
-  {
-    id: 4,
-    name: "บราวนี่ M",
-    price: 85,
-    image: "/products/Brownies M.png",
     category: "bakery",
   },
   {
@@ -64,20 +51,6 @@ export const products: Product[] = [
     category: "bakery",
   },
   {
-    id: 10,
-    name: "แยมสตรอว์เบอร์รี",
-    price: 250,
-    image: "/products/Strawberry Jam.png",
-    category: "jam",
-  },
-  {
-    id: 11,
-    name: "ขนมปังไส้กรอก",
-    price: 90,
-    image: "/products/Smoked Frank Braid.png",
-    category: "bread",
-  },
-    {
     id: 12,
     name: "ครัวซองต์",
     price: 80,
@@ -106,31 +79,10 @@ export const products: Product[] = [
     category: "bakery",
   },
   {
-    id: 16,
-    name: "ซาวโดว์ (ทั้งก้อน)",
-    price: 280,
+    id: 20,
+    name: "Sourdough",
+    price: 50,
     image: "/products/Sourdough.png",
     category: "bread",
-  },
-  {
-    id: 17,
-    name: "ซาวโดว์ (ครึ่งก้อน)",
-    price: 150,
-    image: "/products/Sourdoughhalf.png",
-    category: "bread",
-  },
-  {
-    id: 18,
-    name: "ขนมปังกระเทียม",
-    price: 60,
-    image: "/products/Garlic Bread.png",
-    category: "bread",
-  },
-  {
-    id: 19,
-    name: "บริยอชนูเทลล่า",
-    price: 100,
-    image: "/products/Nutella Brioche.png",
-    category: "bakery",
   },
 ];

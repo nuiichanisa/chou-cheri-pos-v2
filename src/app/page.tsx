@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import Header from "@/components/Header";
 import ProductGrid from "@/components/ProductGrid";
@@ -17,20 +17,8 @@ import type { PaymentMethod } from "@/types/sale";
 export default function Home() {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [paymentOpen, setPaymentOpen] = useState(false);
-  const [promo3Free1, setPromo3Free1] = useState(false);
 
   const { sales, addSale } = useSales();
-
-  useEffect(() => {
-    const totalItems = cart.reduce(
-      (sum, item) => sum + item.quantity,
-      0
-    );
-
-    if (totalItems < 4 && promo3Free1) {
-      setPromo3Free1(false);
-    }
-  }, [cart, promo3Free1]);
 
   function addToCart(product: Product) {
     setCart((currentCart) => {
@@ -97,7 +85,6 @@ export default function Home() {
 
   function clearCart() {
     setCart([]);
-    setPromo3Free1(false);
   }
 
   const subtotal = cart.reduce(
@@ -105,23 +92,8 @@ export default function Home() {
     0
   );
 
-  const prices = cart.flatMap((item) =>
-    Array(item.quantity).fill(item.product.price)
-  );
-
-  prices.sort((a, b) => a - b);
-
-  let discount = 0;
-
-  if (promo3Free1) {
-    const free = Math.floor(prices.length / 4);
-
-    for (let i = 0; i < free; i++) {
-      discount += prices[i];
-    }
-  }
-
-  const total = subtotal - discount;
+  const discount = 0;
+  const total = subtotal;
 
   async function completeSale(payment: PaymentMethod) {
     await addSale({
@@ -158,8 +130,6 @@ export default function Home() {
           subtotal={subtotal}
           discount={discount}
           total={total}
-          promo3Free1={promo3Free1}
-          togglePromo={() => setPromo3Free1(!promo3Free1)}
           increaseQuantity={increaseQuantity}
           decreaseQuantity={decreaseQuantity}
           removeItem={removeItem}
