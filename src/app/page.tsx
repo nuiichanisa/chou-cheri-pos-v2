@@ -18,6 +18,10 @@ export default function Home() {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [paymentOpen, setPaymentOpen] = useState(false);
 
+  // ส่วนลด
+  const [discountEnabled, setDiscountEnabled] = useState(false);
+  const [discount, setDiscount] = useState(0);
+
   const { sales, addSale } = useSales();
 
   function addToCart(product: Product) {
@@ -85,6 +89,8 @@ export default function Home() {
 
   function clearCart() {
     setCart([]);
+    setDiscount(0);
+    setDiscountEnabled(false);
   }
 
   const subtotal = cart.reduce(
@@ -92,15 +98,20 @@ export default function Home() {
     0
   );
 
-  const discount = 0;
-  const total = subtotal;
+  // ห้ามส่วนลดเกินยอดสินค้า
+  const appliedDiscount = Math.min(
+    Math.max(discount, 0),
+    subtotal
+  );
+
+  const total = subtotal - appliedDiscount;
 
   async function completeSale(payment: PaymentMethod) {
     await addSale({
       createdAt: new Date().toISOString(),
       payment,
       subtotal,
-      discount,
+      discount: appliedDiscount,
       total,
       items: cart.map((item) => ({
         productId: item.product.id,
@@ -128,8 +139,18 @@ export default function Home() {
         <Cart
           cart={cart}
           subtotal={subtotal}
-          discount={discount}
+          discount={appliedDiscount}
           total={total}
+          discountEnabled={discountEnabled}
+          toggleDiscount={() => {
+            if (discountEnabled) {
+              setDiscountEnabled(false);
+              setDiscount(0);
+            } else {
+              setDiscountEnabled(true);
+            }
+          }}
+          setDiscount={setDiscount}
           increaseQuantity={increaseQuantity}
           decreaseQuantity={decreaseQuantity}
           removeItem={removeItem}

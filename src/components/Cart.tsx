@@ -6,6 +6,10 @@ type Props = {
   discount: number;
   total: number;
 
+  discountEnabled: boolean;
+  toggleDiscount: () => void;
+  setDiscount: (value: number) => void;
+
   increaseQuantity: (productId: number) => void;
   decreaseQuantity: (productId: number) => void;
   removeItem: (productId: number) => void;
@@ -18,6 +22,9 @@ export default function Cart({
   subtotal,
   discount,
   total,
+  discountEnabled,
+  toggleDiscount,
+  setDiscount,
   increaseQuantity,
   decreaseQuantity,
   removeItem,
@@ -100,11 +107,60 @@ export default function Cart({
           </div>
 
           <div className="mt-6 border-t pt-4">
+
+            {/* ส่วนลด */}
+            <button
+              onClick={toggleDiscount}
+              className={`mb-3 w-full rounded-xl py-3 font-bold transition ${
+                discountEnabled
+                  ? "bg-green-100 text-green-700"
+                  : "bg-yellow-100 text-yellow-700 hover:bg-yellow-200"
+              }`}
+            >
+              {discountEnabled
+                ? "🏷️ ส่วนลด ✓"
+                : "🏷️ เพิ่มส่วนลด"}
+            </button>
+
+            {discountEnabled && (
+              <div className="mb-4 rounded-2xl bg-slate-50 p-4">
+                <label className="mb-2 block text-sm font-semibold text-slate-600">
+                  ส่วนลด (บาท)
+                </label>
+
+                <input
+                  type="number"
+                  min="0"
+                  max={subtotal}
+                  value={discount === 0 ? "" : discount}
+                  onChange={(e) => {
+                    const value = Number(e.target.value);
+
+                    setDiscount(
+                      Math.min(
+                        Math.max(value || 0, 0),
+                        subtotal
+                      )
+                    );
+                  }}
+                  placeholder="0"
+                  className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-xl font-bold outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-100"
+                />
+              </div>
+            )}
+
             <div className="space-y-2">
               <div className="flex justify-between">
                 <span>ยอดรวม</span>
                 <span>฿{subtotal}</span>
               </div>
+
+              {discount > 0 && (
+                <div className="flex justify-between font-bold text-green-600">
+                  <span>🏷️ ส่วนลด</span>
+                  <span>-฿{discount}</span>
+                </div>
+              )}
 
               <div className="flex justify-between border-t pt-2 text-2xl font-bold">
                 <span>รวม</span>
