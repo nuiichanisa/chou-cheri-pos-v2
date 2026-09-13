@@ -7,12 +7,28 @@ type Props = {
 };
 
 export default function Dashboard({ sales }: Props) {
-  const today = new Date().toDateString();
+  const now = new Date();
 
-  const todaySales = sales.filter(
-    (sale) =>
-      new Date(sale.createdAt).toDateString() === today
+  const startOfToday = new Date(
+    now.getFullYear(),
+    now.getMonth(),
+    now.getDate()
   );
+
+  const startOfTomorrow = new Date(
+    now.getFullYear(),
+    now.getMonth(),
+    now.getDate() + 1
+  );
+
+  const todaySales = sales.filter((sale) => {
+    const saleDate = new Date(sale.createdAt);
+
+    return (
+      saleDate >= startOfToday &&
+      saleDate < startOfTomorrow
+    );
+  });
 
   const revenue = todaySales.reduce(
     (sum, sale) => sum + sale.total,
@@ -33,7 +49,6 @@ export default function Dashboard({ sales }: Props) {
 
   return (
     <div className="mb-6 grid gap-4 md:grid-cols-4">
-
       <div className="rounded-2xl bg-white p-5 shadow">
         <div className="text-gray-500">
           ยอดขายวันนี้
@@ -73,7 +88,6 @@ export default function Dashboard({ sales }: Props) {
           ฿{transfer + thai}
         </div>
       </div>
-
     </div>
   );
 }
