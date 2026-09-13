@@ -106,4 +106,32 @@ export const products: Product[] = [
     image: "/products/Tuna Melt.png",
     category: "bakery",
   },
+  {
+  id: 23,
+  name: "Strawberry Cup Cake",
+  price: 100,
+  image: "/products/Strawberry Cup Cake.png",
+  category: "bakery",
+},
+{
+  id: 24,
+  name: "Peach Green Tea",
+  price: 50,
+  image: "/products/Peach Green Tea.png",
+  category: "drink",
+},
+{
+  id: 25,
+  name: "ข้าวแกงกะหรี่",
+  price: 85,
+  image: "/products/Curry Rice.png",
+  category: "food",
+},
+{
+  id: 26,
+  name: "ข้าวผัดกระเทียม",
+  price: 85,
+  image: "/products/Garlic Fried Rice.png",
+  category: "food",
+},
 ];

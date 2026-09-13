@@ -1,4 +1,4 @@
-export type ProductCategory = "bread" | "bakery" | "jam";
+export type ProductCategory = "bread" | "bakery" | "jam" | "drink";
 
 export interface Product {
   id: number;
