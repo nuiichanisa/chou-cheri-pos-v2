@@ -8,13 +8,7 @@ export const products: Product[] = [
     image: "/products/Shiopan.png",
     category: "bread",
   },
-  {
-    id: 2,
-    name: "ชิโอะทรัฟเฟิล",
-    price: 90,
-    image: "/products/Shiopan Truffle.png",
-    category: "bread",
-  },
+
   {
     id: 3,
     name: "บราวนี่ S",
@@ -22,6 +16,7 @@ export const products: Product[] = [
     image: "/products/Brownies S.png",
     category: "bakery",
   },
+
   {
     id: 5,
     name: "คุกกี้",
@@ -29,6 +24,7 @@ export const products: Product[] = [
     image: "/products/Cookies pcs.png",
     category: "bakery",
   },
+
   {
     id: 6,
     name: "คุกกี้เซ็ต",
@@ -36,6 +32,7 @@ export const products: Product[] = [
     image: "/products/Cookies Set.png",
     category: "bakery",
   },
+
   {
     id: 7,
     name: "ฟอคคาเซีย",
@@ -43,34 +40,7 @@ export const products: Product[] = [
     image: "/products/Foccacia.png",
     category: "bread",
   },
-  {
-    id: 8,
-    name: "สโคน",
-    price: 60,
-    image: "/products/Scone pcs.png",
-    category: "bakery",
-  },
-  {
-    id: 9,
-    name: "เซ็ตสโคน",
-    price: 200,
-    image: "/products/Scone Set.png",
-    category: "bakery",
-  },
-  {
-    id: 12,
-    name: "ครัวซองต์",
-    price: 80,
-    image: "/products/Croissant.png",
-    category: "bakery",
-  },
-  {
-    id: 13,
-    name: "ครัวซองต์อัลมอนด์",
-    price: 100,
-    image: "/products/AC.png",
-    category: "bakery",
-  },
+
   {
     id: 14,
     name: "ครัวซองต์แฮมชีส",
@@ -78,13 +48,7 @@ export const products: Product[] = [
     image: "/products/Ham Cheese Croissant.png",
     category: "bakery",
   },
-  {
-    id: 17,
-    name: "Sourdough (ครึ่งก้อน)",
-    price: 180,
-    image: "/products/Sourdoughhalf.png",
-    category: "bread",
-  },
+
   {
     id: 20,
     name: "Sourdough (แผ่น)",
@@ -92,13 +56,7 @@ export const products: Product[] = [
     image: "/products/Sourdough.png",
     category: "bread",
   },
-  {
-    id: 21,
-    name: "Pannacotta",
-    price: 60,
-    image: "/products/Pannacotta.png",
-    category: "bakery",
-  },
+
   {
     id: 22,
     name: "Tuna Melt",
@@ -106,32 +64,28 @@ export const products: Product[] = [
     image: "/products/Tuna Melt.png",
     category: "bakery",
   },
+
   {
-  id: 23,
-  name: "Strawberry Cup Cake",
-  price: 100,
-  image: "/products/Strawberry Cup Cake.png",
-  category: "bakery",
-},
-{
-  id: 24,
-  name: "Peach Green Tea",
-  price: 50,
-  image: "/products/Peach Green Tea.png",
-  category: "drink",
-},
-{
-  id: 25,
-  name: "ข้าวแกงกะหรี่",
-  price: 85,
-  image: "/products/Curry Rice.png",
-  category: "food",
-},
-{
-  id: 26,
-  name: "ข้าวผัดกระเทียม",
-  price: 85,
-  image: "/products/Garlic Fried Rice.png",
-  category: "food",
-},
+    id: 27,
+    name: "เปียกปูนใบเตยกะทิสด",
+    price: 50,
+    image: "/products/เปียกปูนใบเตยกะทิสด.png",
+    category: "bakery",
+  },
+
+  {
+    id: 28,
+    name: "สาคูถั่วดำ",
+    price: 50,
+    image: "/products/สาคูถั่วดำ.png",
+    category: "bakery",
+  },
+
+  {
+    id: 29,
+    name: "เต้าส่วน",
+    price: 50,
+    image: "/products/เต้าส่วน.png",
+    category: "bakery",
+  },
 ];
