@@ -40,6 +40,21 @@ export const products: Product[] = [
     image: "/products/Foccacia.png",
     category: "bread",
   },
+{
+  id: 12,
+  name: "ครัวซองต์",
+  price: 80,
+  image: "/products/Croissant.png",
+  category: "bakery",
+},
+
+{
+  id: 13,
+  name: "ครัวซองต์อัลมอนด์",
+  price: 100,
+  image: "/products/AC.png",
+  category: "bakery",
+},
 
   {
     id: 14,
