@@ -10,6 +10,14 @@ export const products: Product[] = [
   },
 
   {
+    id: 2,
+    name: "ชิโอะทรัฟเฟิล",
+    price: 110,
+    image: "/products/Shiopan Truffle.png",
+    category: "bread",
+  },
+
+  {
     id: 3,
     name: "บราวนี่ S",
     price: 40,
@@ -40,21 +48,30 @@ export const products: Product[] = [
     image: "/products/Foccacia.png",
     category: "bread",
   },
-{
-  id: 12,
-  name: "ครัวซองต์",
-  price: 80,
-  image: "/products/Croissant.png",
-  category: "bakery",
-},
 
-{
-  id: 13,
-  name: "ครัวซองต์อัลมอนด์",
-  price: 100,
-  image: "/products/AC.png",
-  category: "bakery",
-},
+  {
+    id: 9,
+    name: "เซ็ตสโคน",
+    price: 200,
+    image: "/products/Scone Set.png",
+    category: "bakery",
+  },
+
+  {
+    id: 12,
+    name: "ครัวซองต์",
+    price: 80,
+    image: "/products/Croissant.png",
+    category: "bakery",
+  },
+
+  {
+    id: 13,
+    name: "ครัวซองต์อัลมอนด์",
+    price: 100,
+    image: "/products/AC.png",
+    category: "bakery",
+  },
 
   {
     id: 14,
@@ -73,11 +90,27 @@ export const products: Product[] = [
   },
 
   {
-    id: 22,
-    name: "Tuna Melt",
-    price: 100,
-    image: "/products/Tuna Melt.png",
-    category: "bakery",
+    id: 25,
+    name: "ข้าวแกงกะหรี่",
+    price: 75,
+    image: "/products/Curry Rice.png",
+    category: "food",
+  },
+
+  {
+    id: 26,
+    name: "ข้าวผัดกระเทียม",
+    price: 75,
+    image: "/products/Garlic Fried Rice.png",
+    category: "food",
+  },
+  
+  {
+    id: 30,
+    name: "ข้าวหมูตุ๋น",
+    price: 75,
+    image: "/products/Braised Pork Rice.png",
+    category: "food",
   },
 
   {
@@ -85,14 +118,6 @@ export const products: Product[] = [
     name: "เปียกปูนใบเตยกะทิสด",
     price: 50,
     image: "/products/เปียกปูนใบเตยกะทิสด.png",
-    category: "bakery",
-  },
-
-  {
-    id: 28,
-    name: "สาคูถั่วดำ",
-    price: 50,
-    image: "/products/สาคูถั่วดำ.png",
     category: "bakery",
   },
 
