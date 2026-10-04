@@ -18,14 +18,6 @@ export const products: Product[] = [
   },
 
   {
-    id: 3,
-    name: "บราวนี่ S",
-    price: 40,
-    image: "/products/Brownies S.png",
-    category: "bakery",
-  },
-
-  {
     id: 5,
     name: "คุกกี้",
     price: 20,
@@ -66,66 +58,34 @@ export const products: Product[] = [
   },
 
   {
-    id: 13,
-    name: "ครัวซองต์อัลมอนด์",
-    price: 100,
-    image: "/products/AC.png",
+    id: 31,
+    name: "Apple Rose Pie",
+    price: 40,
+    image: "/products/Apple Rose Pie.png",
     category: "bakery",
   },
 
   {
-    id: 14,
-    name: "ครัวซองต์แฮมชีส",
-    price: 100,
-    image: "/products/Ham Cheese Croissant.png",
+    id: 32,
+    name: "Coffee Jelly",
+    price: 60,
+    image: "/products/Coffee Jelly.png",
     category: "bakery",
   },
 
   {
-    id: 20,
-    name: "Sourdough (แผ่น)",
-    price: 50,
-    image: "/products/Sourdough.png",
-    category: "bread",
-  },
-
-  {
-    id: 25,
-    name: "ข้าวแกงกะหรี่",
+    id: 33,
+    name: "Korean Sandwich - Sausage",
     price: 75,
-    image: "/products/Curry Rice.png",
-    category: "food",
-  },
-
-  {
-    id: 26,
-    name: "ข้าวผัดกระเทียม",
-    price: 75,
-    image: "/products/Garlic Fried Rice.png",
-    category: "food",
-  },
-  
-  {
-    id: 30,
-    name: "ข้าวหมูตุ๋น",
-    price: 75,
-    image: "/products/Braised Pork Rice.png",
-    category: "food",
-  },
-
-  {
-    id: 27,
-    name: "เปียกปูนใบเตยกะทิสด",
-    price: 50,
-    image: "/products/เปียกปูนใบเตยกะทิสด.png",
+    image: "/products/Korean Sandwich - Sausage.png",
     category: "bakery",
   },
 
   {
-    id: 29,
-    name: "เต้าส่วน",
-    price: 50,
-    image: "/products/เต้าส่วน.png",
+    id: 34,
+    name: "Korean Sandwich - Ham",
+    price: 75,
+    image: "/products/Korean Sandwich - Ham.png",
     category: "bakery",
   },
 ];
