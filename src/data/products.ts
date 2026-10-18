@@ -8,7 +8,6 @@ export const products: Product[] = [
     image: "/products/Shiopan.png",
     category: "bread",
   },
-
   {
     id: 2,
     name: "ชิโอะทรัฟเฟิล",
@@ -16,7 +15,6 @@ export const products: Product[] = [
     image: "/products/Shiopan Truffle.png",
     category: "bread",
   },
-
   {
     id: 5,
     name: "คุกกี้",
@@ -24,7 +22,6 @@ export const products: Product[] = [
     image: "/products/Cookies pcs.png",
     category: "bakery",
   },
-
   {
     id: 6,
     name: "คุกกี้เซ็ต",
@@ -32,7 +29,6 @@ export const products: Product[] = [
     image: "/products/Cookies Set.png",
     category: "bakery",
   },
-
   {
     id: 7,
     name: "ฟอคคาเซีย",
@@ -40,7 +36,6 @@ export const products: Product[] = [
     image: "/products/Foccacia.png",
     category: "bread",
   },
-
   {
     id: 9,
     name: "เซ็ตสโคน",
@@ -48,15 +43,6 @@ export const products: Product[] = [
     image: "/products/Scone Set.png",
     category: "bakery",
   },
-
-  {
-    id: 12,
-    name: "ครัวซองต์",
-    price: 80,
-    image: "/products/Croissant.png",
-    category: "bakery",
-  },
-
   {
     id: 31,
     name: "Apple Rose Pie",
@@ -64,7 +50,6 @@ export const products: Product[] = [
     image: "/products/Apple Rose Pie.png",
     category: "bakery",
   },
-
   {
     id: 32,
     name: "Coffee Jelly",
@@ -72,7 +57,6 @@ export const products: Product[] = [
     image: "/products/Coffee Jelly.png",
     category: "bakery",
   },
-
   {
     id: 33,
     name: "Korean Sandwich - Sausage",
@@ -80,12 +64,39 @@ export const products: Product[] = [
     image: "/products/Korean Sandwich - Sausage.png",
     category: "bakery",
   },
-
   {
     id: 34,
     name: "Korean Sandwich - Ham",
     price: 75,
     image: "/products/Korean Sandwich - Ham.png",
+    category: "bakery",
+  },
+  {
+    id: 35,
+    name: "Korean Sandwich - Tunamayo",
+    price: 75,
+    image: "/products/Korean Sandwich - Tunamayo.png",
+    category: "bakery",
+  },
+  {
+    id: 36,
+    name: "เปียกปูนใบเตยกะทิสด",
+    price: 50,
+    image: "/products/เปียกปูนใบเตยกะทิสด.png",
+    category: "bakery",
+  },
+  {
+    id: 37,
+    name: "ขนมไทย 4 ช่อง",
+    price: 40,
+    image: "/products/ขนมไทย 4 ช่อง.png",
+    category: "bakery",
+  },
+  {
+    id: 38,
+    name: "บัวลอยน้ำขิง",
+    price: 50,
+    image: "/products/บัวลอยน้ำขิง.png",
     category: "bakery",
   },
 ];
