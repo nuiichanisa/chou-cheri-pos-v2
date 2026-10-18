@@ -44,6 +44,20 @@ export const products: Product[] = [
     category: "bakery",
   },
   {
+    id: 20,
+    name: "Sourdough (แผ่น)",
+    price: 50,
+    image: "/products/Sourdough.png",
+    category: "bread",
+  },
+  {
+    id: 17,
+    name: "ซาวโดว์ (ครึ่งก้อน)",
+    price: 160,
+    image: "/products/Sourdoughhalf.png",
+    category: "bread",
+  },
+  {
     id: 31,
     name: "Apple Rose Pie",
     price: 40,
