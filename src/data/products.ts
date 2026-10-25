@@ -2,20 +2,6 @@ import type { Product } from "@/types/product";
 
 export const products: Product[] = [
   {
-    id: 1,
-    name: "ชิโอะปัง",
-    price: 70,
-    image: "/products/Shiopan.png",
-    category: "bread",
-  },
-  {
-    id: 2,
-    name: "ชิโอะทรัฟเฟิล",
-    price: 110,
-    image: "/products/Shiopan Truffle.png",
-    category: "bread",
-  },
-  {
     id: 5,
     name: "คุกกี้",
     price: 20,
@@ -37,38 +23,10 @@ export const products: Product[] = [
     category: "bread",
   },
   {
-    id: 9,
-    name: "เซ็ตสโคน",
-    price: 200,
-    image: "/products/Scone Set.png",
-    category: "bakery",
-  },
-  {
-    id: 20,
-    name: "Sourdough (แผ่น)",
-    price: 50,
-    image: "/products/Sourdough.png",
-    category: "bread",
-  },
-  {
-    id: 17,
-    name: "ซาวโดว์ (ครึ่งก้อน)",
-    price: 160,
-    image: "/products/Sourdoughhalf.png",
-    category: "bread",
-  },
-  {
     id: 31,
     name: "Apple Rose Pie",
-    price: 40,
+    price: 45,
     image: "/products/Apple Rose Pie.png",
-    category: "bakery",
-  },
-  {
-    id: 32,
-    name: "Coffee Jelly",
-    price: 60,
-    image: "/products/Coffee Jelly.png",
     category: "bakery",
   },
   {
@@ -93,24 +51,17 @@ export const products: Product[] = [
     category: "bakery",
   },
   {
-    id: 36,
-    name: "เปียกปูนใบเตยกะทิสด",
-    price: 50,
-    image: "/products/เปียกปูนใบเตยกะทิสด.png",
-    category: "bakery",
-  },
-  {
     id: 37,
     name: "ขนมไทย 4 ช่อง",
-    price: 40,
+    price: 50,
     image: "/products/ขนมไทย 4 ช่อง.png",
     category: "bakery",
   },
   {
-    id: 38,
-    name: "บัวลอยน้ำขิง",
+    id: 39,
+    name: "ขนมชั้น",
     price: 50,
-    image: "/products/บัวลอยน้ำขิง.png",
+    image: "/products/ขนมชั้น.png",
     category: "bakery",
   },
 ];
