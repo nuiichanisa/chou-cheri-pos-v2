@@ -1,6 +1,21 @@
+
 import type { Product } from "@/types/product";
 
 export const products: Product[] = [
+  {
+    id: 1,
+    name: "ชิโอะปัง",
+    price: 70,
+    image: "/products/Shiopan.png",
+    category: "bread",
+  },
+  {
+    id: 2,
+    name: "ชิโอะทรัฟเฟิล",
+    price: 110,
+    image: "/products/Shiopan Truffle.png",
+    category: "bread",
+  },
   {
     id: 5,
     name: "คุกกี้",
@@ -23,10 +38,24 @@ export const products: Product[] = [
     category: "bread",
   },
   {
+    id: 20,
+    name: "Sourdough (แผ่น)",
+    price: 50,
+    image: "/products/Sourdough.png",
+    category: "bread",
+  },
+  {
     id: 31,
     name: "Apple Rose Pie",
     price: 45,
     image: "/products/Apple Rose Pie.png",
+    category: "bakery",
+  },
+  {
+    id: 32,
+    name: "Coffee Jelly",
+    price: 60,
+    image: "/products/Coffee Jelly.png",
     category: "bakery",
   },
   {
@@ -51,17 +80,17 @@ export const products: Product[] = [
     category: "bakery",
   },
   {
-    id: 37,
-    name: "ขนมไทย 4 ช่อง",
+    id: 36,
+    name: "เปียกปูนใบเตยกะทิสด",
     price: 50,
-    image: "/products/ขนมไทย 4 ช่อง.png",
+    image: "/products/เปียกปูนใบเตยกะทิสด.png",
     category: "bakery",
   },
   {
-    id: 39,
-    name: "ขนมชั้น",
+    id: 40,
+    name: "ลืมกลืน",
     price: 50,
-    image: "/products/ขนมชั้น.png",
+    image: "/products/ลืมกลืน.png",
     category: "bakery",
   },
 ];
