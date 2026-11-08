@@ -38,11 +38,11 @@ export const products: Product[] = [
     category: "bread",
   },
   {
-    id: 20,
-    name: "Sourdough (แผ่น)",
-    price: 50,
-    image: "/products/Sourdough.png",
-    category: "bread",
+    id: 9,
+    name: "สโคนเซ็ต",
+    price: 200,
+    image: "/products/Scone Set.png",
+    category: "bakery",
   },
   {
     id: 31,
@@ -56,6 +56,13 @@ export const products: Product[] = [
     name: "Coffee Jelly",
     price: 60,
     image: "/products/Coffee Jelly.png",
+    category: "bakery",
+  },
+  {
+    id: 41,
+    name: "พานาคอตต้า",
+    price: 60,
+    image: "/products/Pannacotta.png",
     category: "bakery",
   },
   {
@@ -80,10 +87,10 @@ export const products: Product[] = [
     category: "bakery",
   },
   {
-    id: 36,
-    name: "เปียกปูนใบเตยกะทิสด",
+    id: 37,
+    name: "ขนมไทย 4 ช่อง",
     price: 50,
-    image: "/products/เปียกปูนใบเตยกะทิสด.png",
+    image: "/products/ขนมไทย 4 ช่อง.png",
     category: "bakery",
   },
   {
@@ -91,6 +98,13 @@ export const products: Product[] = [
     name: "ลืมกลืน",
     price: 50,
     image: "/products/ลืมกลืน.png",
+    category: "bakery",
+  },
+  {
+    id: 42,
+    name: "ผกากรอง",
+    price: 50,
+    image: "/products/ผกากรอง.png",
     category: "bakery",
   },
 ];
