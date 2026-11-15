@@ -16,6 +16,13 @@ export const products: Product[] = [
     image: "/products/Shiopan Truffle.png",
     category: "bread",
   },
+    {
+  id: 3,
+  name: "บราวนี่เล็ก",
+  price: 40,
+  image: "/products/BrownieS.png",
+  category: "bakery",
+},
   {
     id: 5,
     name: "คุกกี้",
@@ -44,13 +51,6 @@ export const products: Product[] = [
     image: "/products/Scone Set.png",
     category: "bakery",
   },
-  {
-  id: 16,
-  name: "บราวนี่เล็ก",
-  price: 40,
-  image: "/products/Brownie S.png",
-  category: "bakery",
-},
   {
     id: 20,
     name: "Sourdough (แผ่น)",
