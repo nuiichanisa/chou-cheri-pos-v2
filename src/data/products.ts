@@ -45,6 +45,13 @@ export const products: Product[] = [
     category: "bakery",
   },
   {
+  id: 16,
+  name: "บราวนี่เล็ก",
+  price: 40,
+  image: "/products/Brownie small.png",
+  category: "bakery",
+},
+  {
     id: 20,
     name: "Sourdough (แผ่น)",
     price: 50,
@@ -72,4 +79,11 @@ export const products: Product[] = [
     image: "/products/หมี่ไก่ฉีก.png",
     category: "food",
   },
+  {
+  id: 45,
+  name: "ขนมชั้น",
+  price: 50,
+  image: "/products/ขนมชั้น.png",
+  category: "bakery",
+},
 ];
