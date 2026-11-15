@@ -66,13 +66,6 @@ export const products: Product[] = [
     category: "bakery",
   },
   {
-    id: 43,
-    name: "เค้กกล้วยหอม",
-    price: 40,
-    image: "/products/เค้กกล้วยหอม.png",
-    category: "bakery",
-  },
-  {
     id: 44,
     name: "หมี่ไก่ฉีก",
     price: 75,
