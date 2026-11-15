@@ -48,7 +48,7 @@ export const products: Product[] = [
   id: 16,
   name: "บราวนี่เล็ก",
   price: 40,
-  image: "/products/Brownie small.png",
+  image: "/products/Brownie S.png",
   category: "bakery",
 },
   {
